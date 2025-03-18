@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { Canvas, useLoader } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function Model() {
+  const result = useLoader(GLTFLoader, '/computador.gltf');
+  // Position the model at the center (0,0,0)
+  return <primitive object={result.scene} position={[-1, -1, -8.7]} />;
 }
 
-export default App
+function App() {
+  return (
+    <div id="canvas-container">
+      <Canvas 
+        shadows
+        camera={{ 
+          position: [10, 5, 5], // Position camera in front of the model
+          fov: 60
+        }}
+      >
+        <ambientLight intensity={0.7} />
+        <directionalLight position={[5, 5, 5]} intensity={0.8} castShadow />
+        
+        {/* Simple environment with just what's needed */}
+        <gridHelper args={[10, 10]} />
+        <OrbitControls 
+          enableZoom={true}
+          enablePan={true}
+          enableRotate={true}
+          target={[0, 0, 0]} // Make camera look at center
+        />
+        
+        {/* The main model positioned at center */}
+        <Model />
+      </Canvas>
+    </div>
+  );
+}
+
+export default App;
