@@ -1,8 +1,10 @@
 import "./App.css";
-import { Canvas, useThree, useLoader } from "@react-three/fiber";
+import { Canvas, useThree, useLoader, } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useState } from "react";
+
+
 
 function Model({ onClick }) {
   const result = useLoader(GLTFLoader, "/computador.gltf");
@@ -45,7 +47,7 @@ function App() {
         <ambientLight intensity={2} />
         <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
 
-        <gridHelper args={[10, 10]} />
+        {/*<gridHelper args={[10, 10]} />*/}
         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
         
         {/* Controlador da Câmera */}
@@ -62,10 +64,11 @@ function App() {
           rotation={[0, Math.PI /2, 0]}  // Ajuste a rotação se necessário
         >
           <iframe 
-            src="https://drei.docs.pmnd.rs/misc/html" 
+            src="https://winxp.vercel.app/"  
             style={{ border: "none", background: "white" }}
           />
       </Html>
+      
       </Canvas>
     </div>
   );
