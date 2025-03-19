@@ -9,3 +9,9 @@ body{
   justify-content: center;
   align-items: center;
 }
+
+.computador iframe{
+  width: 647px;
+  height: 523px;
+  border-radius: 2%;
+}

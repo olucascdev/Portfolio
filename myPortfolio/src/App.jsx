@@ -1,6 +1,6 @@
 import "./App.css";
 import { Canvas, useThree, useLoader } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Html } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useState } from "react";
 
@@ -11,6 +11,8 @@ function Model({ onClick }) {
     <primitive 
       object={result.scene} 
       position={[-1, -3, -8.7]} 
+      rotation={[0, 0, 0]}  // Ajuste a rotação se necessário
+
       onClick={onClick} // Captura clique no modelo
       style={{ cursor: "pointer" }}
     />
@@ -51,6 +53,19 @@ function App() {
 
         {/* Modelo que ativa o foco ao clicar */}
         <Model onClick={() => setFocus(!focus)} />
+        <Html  
+          occlude="blending"
+          wrapperClass="computador"
+          position={[0.25, 0.26, -0.17]} // Ajuste fino para alinhar com a tela
+          transform
+          distanceFactor={1.5} // Ajusta o tamanho do HTML de acordo com a cena
+          rotation={[0, Math.PI /2, 0]}  // Ajuste a rotação se necessário
+        >
+          <iframe 
+            src="https://drei.docs.pmnd.rs/misc/html" 
+            style={{ border: "none", background: "white" }}
+          />
+      </Html>
       </Canvas>
     </div>
   );
