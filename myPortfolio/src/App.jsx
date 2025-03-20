@@ -3,6 +3,11 @@ import { Canvas, useThree, useLoader, } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useState } from "react";
+import { EffectComposer, Scanline, Bloom } from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
+
+
+
 
 
 
@@ -44,6 +49,7 @@ function App() {
       <Canvas 
         camera={{ position: [10, 5, 5], fov: 55 }}
       >
+        
         <ambientLight intensity={2} />
         <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
 
@@ -55,7 +61,7 @@ function App() {
 
         {/* Modelo que ativa o foco ao clicar */}
         <Model onClick={() => setFocus(!focus)} />
-        <Html  
+        <Html
           occlude="blending"
           wrapperClass="computador"
           position={[0.25, 0.26, -0.17]} // Ajuste fino para alinhar com a tela
@@ -63,11 +69,14 @@ function App() {
           distanceFactor={1.5} // Ajusta o tamanho do HTML de acordo com a cena
           rotation={[0, Math.PI /2, 0]}  // Ajuste a rotação se necessário
         >
-          <iframe 
+          <iframe
             src="https://winxp.vercel.app/"  
             style={{ border: "none", background: "white" }}
           />
+            
+          
       </Html>
+      
       
       </Canvas>
     </div>
