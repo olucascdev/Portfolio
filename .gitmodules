@@ -1,0 +1,3 @@
+[submodule "WinXP"]
+	path = WinXP
+	url = git@github.com:ShizukuIchi/winXP.git
