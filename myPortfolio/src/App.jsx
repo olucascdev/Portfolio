@@ -4,7 +4,7 @@ import { OrbitControls, Html } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import WindowsXP from "./components/WindowsXP";
+
 
 function Model({ onClick }) {
   const result = useLoader(GLTFLoader, "/computador.gltf");
@@ -57,7 +57,10 @@ function Scene() {
           rotation={[0, Math.PI / 2, 0]}  
         >
           
-          <WindowsXP />
+           
+           <iframe
+             src="http://localhost:3000/"  
+           />
         </Html>
       </Canvas>
     </div>
@@ -69,7 +72,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Scene />} />
-        <Route path="/windowsxp" element={<WindowsXP />} />
+        
       </Routes>
     </Router>
   );
