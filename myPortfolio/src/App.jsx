@@ -60,6 +60,7 @@ function Scene() {
            
            <iframe
              src="http://localhost:3000/"  
+
            />
         </Html>
       </Canvas>
