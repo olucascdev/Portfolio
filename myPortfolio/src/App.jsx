@@ -6,7 +6,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function Model({ onClick }) {
-  const result = useLoader(GLTFLoader, "/computador.gltf");
+  const result = useLoader(GLTFLoader, "computador/computador.gltf");
   
   return (
     <primitive
@@ -18,13 +18,27 @@ function Model({ onClick }) {
     />
   );
 }
+function Model2({ onClick }) {
+  const result = useLoader(GLTFLoader, "table/table.gltf");
+  
+  return (
+    <primitive
+      object={result.scene}
+      position={[-1, -2.52, 0]}
+      rotation={[0, 80, 0]}
+      scale={[5, 5, 5]}
+      onClick={onClick}
+      style={{ cursor: "pointer" }}
+    />
+  );
+}
 
 function CameraController({ focus }) {
   const { camera } = useThree();
   
   if (focus) {
-    camera.fov = 9.5;
-    camera.position.set(20, -0.05, 0);
+    camera.fov = 8.5;
+    camera.position.set(20, 1.5, 0);
   } else {
     camera.fov = 35;
     camera.position.set(10, 5, 5);
@@ -46,6 +60,8 @@ function Scene() {
         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
         <CameraController focus={focus} />
         <Model onClick={() => setFocus(!focus)} />
+        <Model2/>
+        
         
         {/* Monitor com efeito CRT aplicado via CSS */}
         <Html
