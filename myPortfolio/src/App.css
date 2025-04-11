@@ -191,3 +191,28 @@ body {
   pointer-events: none;
   z-index: 10;
 }
+
+
+.developer-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: black;
+  background-color: white;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  z-index: 1000;
+  font-weight: bold;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  line-height: 1.4;
+}
+
+.developer-name {
+  font-weight: 700;
+}
+
+.developer-title {
+  font-weight: 500;
+  color: #333;
+}
