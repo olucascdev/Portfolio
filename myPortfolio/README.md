@@ -1,12 +1,21 @@
-# React + Vite
+# 💼 Portfólio 3D com React Three Fiber e WinXP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um portfólio pessoal desenvolvido com foco em interatividade e design 3D utilizando **React Three Fiber**. Dentro da cena 3D, é renderizado um monitor que simula a experiência nostálgica do **Windows XP**, com janelas interativas criadas a partir de um sistema baseado em React.
 
-Currently, two official plugins are available:
+## ⚙️ Stack utilizada
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** – Biblioteca base para a aplicação
+- **React Three Fiber** – Renderização 3D baseada em Three.js para React
+- **Drei** – Helpers e abstrações para facilitar o uso do R3F
+- **React Spring** – Animações físicas para elementos 3D
+- **Styled-components** – Estilização com CSS-in-JS
+- **Customização do React95** – Componentes no estilo Windows XP adaptados para rodar dentro da cena 3D
 
-## Expanding the ESLint configuration
+## 🖥️ Como o projeto funciona
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- A cena 3D é montada com **React Three Fiber**, incluindo iluminação, câmera e um modelo 3D de um computador.
+- Dentro da tela do computador 3D, é renderizado um sistema semelhante ao **Windows XP**, com múltiplas janelas, ícones e ações (minimizar, maximizar, fechar).
+- A interface do WinXP foi retirada de um repositório open source, **refatorada** e adaptada para se encaixar na estrutura do monitor virtual.
+- Todo o conteúdo é **responsivo** e interativo, com foco em uma navegação fluida mesmo dentro do contexto 3D.
+
+
