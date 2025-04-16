@@ -130,7 +130,7 @@ function Scene() {
           rotation={[0, Math.PI / 2, 0]}
         >
           <div className="crt-container">
-            <iframe src="http://localhost:3000/" className="crt-screen" />
+            <iframe src="https://papayawhip-gerbil-706892.hostingersite.com/" className="crt-screen" />
           </div>
         </Html>
       </Canvas>
